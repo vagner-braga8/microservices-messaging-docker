@@ -1,0 +1,14 @@
+# Configurações da aplicação Spring Boot
+spring:
+  application:
+    name: eurekaserver  # Nome da aplicação (usado para identificação no Eureka)
+
+# Porta em que o servidor irá rodar
+server:
+  port: 8761  # Porta padrão do Eureka Server
+
+# Configurações específicas do Eureka
+eureka:
+  client:
+    register-with-eureka: false  # Este servidor não deve se registrar como cliente (pois ele é o servidor)
+    fetch-registry: false        # Este servidor não precisa buscar registros (ele é quem os fornece)
