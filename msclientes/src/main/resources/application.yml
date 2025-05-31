@@ -1,16 +1,16 @@
-# Configurações da aplicação Spring Boot
+# Configuraï¿½ï¿½es da aplicaï¿½ï¿½o Spring Boot
 spring:
   application:
-    name: msclientes  # Nome da aplicação (usado para identificação no Eureka)
+    name: msclientes  # Nome da aplicaï¿½ï¿½o (usado para identificaï¿½ï¿½o no Eureka)
 
-# Configurações do servidor
+# Configuraï¿½ï¿½es do servidor
 server:
-  port: 0  # Porta 0 permite que o Spring Boot escolha uma porta aleatória disponível
+  port: 0  # Porta 0 permite que o Spring Boot escolha uma porta aleatï¿½ria disponï¿½vel
 
-# Configurações específicas do Eureka Client
+# Configuraï¿½ï¿½es especï¿½ficas do Eureka Client
 eureka:
   client:
     service-url:
-      default-zone: http://localhost:8761/eureka  # URL do Eureka Server onde este microserviço se registrará
+      default-zone: http://localhost:8761/eureka  # URL do Eureka Server onde este microserviï¿½o se registrarï¿½
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # Define um nome único para a instância
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # Define um nome ï¿½nico para a instï¿½ncia
