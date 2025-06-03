@@ -21,8 +21,8 @@ public class MscloudgatewayApplication {
 	public RouteLocator routes(RouteLocatorBuilder builder) {
 		return builder
 				.routes()
-				.route(r -> r.path("/clientes/**") // Define um padrão de caminho para requisições HTTP
-						.uri("lb://msclientes")) // Redireciona as requisições para o serviço registrado com o nome "msclientes"
+				.route(r -> r.path("/clientes/**").uri("lb://msclientes"))
+				.route(r -> r.path("/cartoes/**").uri("lb://mscartoes"))
 				.build();
 	}
 
