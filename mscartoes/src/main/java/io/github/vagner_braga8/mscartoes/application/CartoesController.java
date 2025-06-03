@@ -1,13 +1,16 @@
 package io.github.vagner_braga8.mscartoes.application;
 
 import io.github.vagner_braga8.mscartoes.domain.Cartao;
+import io.github.vagner_braga8.mscartoes.domain.ClienteCartao;
 import io.github.vagner_braga8.mscartoes.representation.CartaoSaveRequest;
+import io.github.vagner_braga8.mscartoes.representation.CartoesPorClienteResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("cartoes")
@@ -15,6 +18,7 @@ import java.util.List;
 public class CartoesController {
 
     private final CartaoService cartaoService;
+    private final ClienteCartaoService clienteCartaoService;
 
     @GetMapping
     public String status() {
@@ -32,6 +36,15 @@ public class CartoesController {
     public ResponseEntity<List<Cartao>> getCartoesRendaAte(@RequestParam("renda") Long renda){
         List<Cartao> cartaoList = cartaoService.getCartoesRendaMenorIgual(renda);
         return ResponseEntity.ok(cartaoList);
+    }
+
+    @GetMapping(params = "cpf")
+    public ResponseEntity<List<CartoesPorClienteResponse>> getCartoesByCpf(@RequestParam("cpf") String cpf){
+        List<ClienteCartao> clienteCartoesList = clienteCartaoService.listCartoesByCpf(cpf);
+        List<CartoesPorClienteResponse> resultList =  clienteCartoesList.stream()
+                .map(CartoesPorClienteResponse::fromModel)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(resultList);
     }
 
 }
