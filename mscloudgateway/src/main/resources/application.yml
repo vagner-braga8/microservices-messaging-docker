@@ -1,19 +1,24 @@
 spring:
   application:
-    name: mscloudgateway  # Define o nome da aplicação do gateway, registrado no Eureka
+    name: mscloudgateway  # Define o nome da aplicaï¿½ï¿½o do gateway, registrado no Eureka
   cloud:
     gateway:
       discovery:
         locator:
-          enabled: true  # Habilita o descobridor de rotas automático baseado no Eureka
-          lower-case-service-id: true  # Converte os IDs dos serviços (ex.: msclientes) para letras minúsculas nas rotas
+          enabled: true  # Habilita o descobridor de rotas automï¿½tico baseado no Eureka
+          lower-case-service-id: true  # Converte os IDs dos serviï¿½os (ex.: msclientes) para letras minï¿½sculas nas rotas
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/mscourserealm
 
 server:
-  port: 8080  # Define a porta em que o gateway será executado
+  port: 8080  # Define a porta em que o gateway serï¿½ executado
 
 eureka:
   client:
-    fetch-registry: true  # Permite que o gateway obtenha a lista de serviços registrados no Eureka
-    register-with-eureka: true  # Registra o próprio gateway como um serviço no Eureka
+    fetch-registry: true  # Permite que o gateway obtenha a lista de serviï¿½os registrados no Eureka
+    register-with-eureka: true  # Registra o prï¿½prio gateway como um serviï¿½o no Eureka
     service-url:
       defaultZone: http://localhost:8761/eureka  # URL do Eureka Server para registro e descoberta
