@@ -1,12 +1,10 @@
 # Configura��es da aplica��o Spring Boot
 spring:
   application:
-    name: eurekaserver  # Nome da aplica��o (usado para identifica��o no Eureka)
+    name: eurekaserver
   security:
-    basic:
-      enabled: true
     user:
-      name: cursoms-eureka-user
+      name: ryu
       password: hadouken
 
 

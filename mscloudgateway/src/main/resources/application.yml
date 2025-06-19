@@ -21,4 +21,4 @@ eureka:
     fetch-registry: true  # Permite que o gateway obtenha a lista de servi�os registrados no Eureka
     register-with-eureka: true  # Registra o pr�prio gateway como um servi�o no Eureka
     service-url:
-      defaultZone: http://localhost:8761/eureka  # URL do Eureka Server para registro e descoberta
+      defaultZone: http://ryu:hadouken@localhost:8761/eureka
